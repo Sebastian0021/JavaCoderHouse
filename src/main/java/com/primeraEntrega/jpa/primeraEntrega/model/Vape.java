@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -13,23 +14,34 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @Table(name = "vape")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
+
 public class Vape {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-
-    @Column(nullable = false)
+    private Long id;
+    
+    @Column(name = "name")
     private String name;
-
-    @Column(nullable = false)
+    
+    @Column(name = "description")
     private String description;
     
+    @Column(name = "price")
     private Double price;
-    private Integer stock;
+    
+    @Column(name = "stock")
+    private int stock;
+    
+    @Column(name = "brand")
     private String brand;
+    
+    @Column(name = "flavor")
     private String flavor;
-    private Long puffs;
+    
+    @Column(name = "puffs")
+    private int puffs;
 }
